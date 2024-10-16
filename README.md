@@ -1,14 +1,14 @@
-# API Chat va Chat vient
+# API Chat va Chat vient 🐱💬
 
-API de l'application **Chat va Chat vient**, un site de rencontres pour les chats.
+API de l'application **Chat va Chat vient**, un site de rencontres pour les chats. ❤️🐈
 
-## Prérequis
+## Prérequis ✅
 
-- Node.js (version minimale : 20)
-- npm (généralement inclus avec Node.js)
-- (optionnel) Docker et Docker Compose (pour exécuter avec Docker)
+- Node.js (version minimale : 20) 🌐
+- npm (généralement inclus avec Node.js) 📦
+- (optionnel) Docker et Docker Compose (pour exécuter avec Docker) 🐳
 
-## Installation
+## Installation ⚙️
 
 1. Clonez le dépôt :  
    **Via SSH :**
@@ -21,8 +21,8 @@ API de l'application **Chat va Chat vient**, un site de rencontres pour les chat
    **Via HTTPS :**
 
    ```bash
-    git clone https://github.com/Chat-va-chat-vient/API.git
-    cd chat-va-chat-vient-api
+   git clone https://github.com/Chat-va-chat-vient/API.git
+   cd chat-va-chat-vient-api
    ```
 
 2. Installez les dépendances :
@@ -31,9 +31,9 @@ API de l'application **Chat va Chat vient**, un site de rencontres pour les chat
    npm install
    ```
 
-## Lancer l'API
+## Lancer l'API 🚀
 
-### Avec Docker
+### Avec Docker 🐋
 
 1. **Construisez l'image Docker :**
 
@@ -47,7 +47,7 @@ API de l'application **Chat va Chat vient**, un site de rencontres pour les chat
    docker run -p 3000:3000 chat-va-chat-vient-api
    ```
 
-### Avec Docker Compose (recommandé)
+### Avec Docker Compose (recommandé) 🐋🛠️
 
 1. **Lancez le service avec Docker Compose :**
 
@@ -55,9 +55,9 @@ API de l'application **Chat va Chat vient**, un site de rencontres pour les chat
    docker-compose up --build
    ```
 
-### Avec npm
+### Avec npm 💻
 
-1. **Assurez-vous d'avoir installé Node.js et npm.**
+1. **Assurez-vous d'avoir installé Node.js (version 20) et npm.**
 
 2. **Démarrez l'application :**
 
@@ -68,9 +68,9 @@ API de l'application **Chat va Chat vient**, un site de rencontres pour les chat
 
 3. **Accédez à l'API :**
 
-   Ouvrez votre navigateur et allez à `http://localhost:3000`. La documentation Swagger est accessible à `http://localhost:3000/api-docs`.
+   Ouvrez votre navigateur et allez à `http://localhost:3000`. La documentation Swagger est accessible à `http://localhost:3000/api-docs`. 📖
 
-## Schéma de la Base de Données
+## Schéma de la Base de Données 🗄️
 
 ```mermaid
 erDiagram
