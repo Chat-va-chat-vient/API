@@ -1,20 +1,28 @@
 # API Chat va Chat vient
 
-Cette API est une application de rencontre pour chats, permettant aux utilisateurs de créer des profils, d'envoyer des messages et d'interagir par le biais de likes et de dislikes.
+API de l'application **Chat va Chat vient**, un site de rencontres pour les chats.
 
 ## Prérequis
 
 - Node.js (version minimale : 20)
 - npm (généralement inclus avec Node.js)
-- Docker et Docker Compose (pour exécuter avec Docker)
+- (optionnel) Docker et Docker Compose (pour exécuter avec Docker)
 
 ## Installation
 
-1. Clonez le dépôt :
+1. Clonez le dépôt :  
+   **Via SSH :**
 
    ```bash
-   git clone <URL_DU_DEPOT>
-   cd <NOM_DU_REPERTOIRE>
+   git clone git@github.com:Chat-va-chat-vient/API.git chat-va-chat-vient-api
+   cd chat-va-chat-vient-api
+   ```
+
+   **Via HTTPS :**
+
+   ```bash
+    git clone https://github.com/Chat-va-chat-vient/API.git
+    cd chat-va-chat-vient-api
    ```
 
 2. Installez les dépendances :
