@@ -728,6 +728,47 @@ app.get("/users/:userId/smashorpass", (req, res) => {
   );
 });
 
+/**
+ * @swagger
+ * /users/{id}:
+ *   get:
+ *     summary: Récupérer les informations d'un utilisateur par son ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID de l'utilisateur
+ *     responses:
+ *       200:
+ *         description: Informations de l'utilisateur récupérées avec succès
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       404:
+ *         description: Utilisateur non trouvé
+ */
+app.get("/users/:id", (req, res) => {
+  const userId = req.params.id;
+
+  db.get(`SELECT * FROM users WHERE id = ?`, [userId], (err, row) => {
+    if (err) {
+      res.status(500).json({
+        message: "Erreur lors de la récupération de l'utilisateur.",
+        error: err,
+      });
+    } else if (!row) {
+      res.status(404).json({
+        message: "Utilisateur non trouvé.",
+      });
+    } else {
+      res.json(row);
+    }
+  });
+});
+
 // Serveur démarré
 app.listen(3000, () => {
   console.log(
