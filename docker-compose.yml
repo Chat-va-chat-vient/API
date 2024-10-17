@@ -3,7 +3,7 @@ services:
     container_name: chatva-chatvient-api
     build: .
     ports:
-      - "4000:3000"
+      - "3001:3000"
     volumes:
       - .:/usr/src/app
     environment:
