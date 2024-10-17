@@ -5,8 +5,9 @@ API de l'application **Chat va Chat vient**, un site de rencontres pour les chat
 ## Prérequis ✅
 
 - Node.js (version minimale : 20) 🌐
-- npm (généralement inclus avec Node.js) 📦
-- (optionnel) Docker et Docker Compose (pour exécuter avec Docker) 🐳
+- npm 📦
+  **      OU      **
+- Docker et Docker Compose 🐳
 
 ## Installation ⚙️
 
@@ -57,12 +58,13 @@ npm run docker:stop
 
    ```bash
    npm install
-   node server.js
+   npm start
    ```
 
 3. **Accédez à l'API :**
 
-   Ouvrez votre navigateur et allez à `http://localhost:3000`. La documentation Swagger est accessible à `http://localhost:3000/api-docs`. 📖
+   Ouvrez votre navigateur et allez à `http://localhost:3000`.  
+   La documentation Swagger est accessible à `http://localhost:3000/api-docs`. 📖
 
 ## Schéma de la Base de Données 🗄️
 
