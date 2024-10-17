@@ -1,7 +1,6 @@
-version: "3.8"
-
 services:
-  chat-va-chat-vient-api:
+  chatva-chatvient-api:
+    container_name: chatva-chatvient-api
     build: .
     ports:
       - "3000:3000"

@@ -33,29 +33,23 @@ API de l'application **Chat va Chat vient**, un site de rencontres pour les chat
 
 ## Lancer l'API 🚀
 
-### Avec Docker 🐋
+### Avec Docker avec NPM 🐋
 
-1. **Construisez l'image Docker :**
+```bash
+# 🛠️ The first time only
+npm run docker:init
 
-   ```bash
-   docker build -t chat-va-chat-vient-api .
-   ```
+# 🚀 To start the API
+npm run docker:start
 
-2. **Exécutez le conteneur :**
+# 📜 To show API logs
+npm run docker:log
 
-   ```bash
-   docker run -p 3000:3000 chat-va-chat-vient-api
-   ```
+# 🛑 To stop the API
+npm run docker:stop
+```
 
-### Avec Docker Compose (recommandé) 🐋🛠️
-
-1. **Lancez le service avec Docker Compose :**
-
-   ```bash
-   docker-compose up --build
-   ```
-
-### Avec npm 💻
+### Avec npm directement 💻
 
 1. **Assurez-vous d'avoir installé Node.js (version 20) et npm.**
 
