@@ -792,9 +792,11 @@ app.get("/users/:id", (req, res) => {
   });
 });
 
+const port = 3001;
+
 // Serveur démarré
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(
-    "Le serveur fonctionne sur le port 3000. Accédez à la documentation Swagger sur http://localhost:3000/api-docs"
+    `Le serveur fonctionne sur le port ${port}. Accédez à la documentation Swagger sur http://localhost:${port}/api-docs`
   );
 });
