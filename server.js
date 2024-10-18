@@ -31,7 +31,8 @@ db.serialize(() => {
       city TEXT,
       age INTEGER,
       name TEXT,
-      gender TEXT
+      gender TEXT,
+      description TEXT
     )
   `);
 
@@ -110,6 +111,7 @@ db.serialize(() => {
           city: "Paris",
           age: 3,
           gender: "M",
+          description: "string",
         },
         {
           id: "0881fc7c-3f06-4e1f-bf8c-21597eff596e",
@@ -117,6 +119,7 @@ db.serialize(() => {
           city: "Lyon",
           age: 2,
           gender: "M",
+          description: "string",
         },
         {
           id: "49a7e2dd-4513-4ef1-8acb-d1f8967bd5c9",
@@ -124,6 +127,7 @@ db.serialize(() => {
           city: "Marseille",
           age: 4,
           gender: "F",
+          description: "string",
         },
         {
           id: "befc7995-93eb-46f2-91b3-9fab3743dc98",
@@ -131,6 +135,7 @@ db.serialize(() => {
           city: "Toulouse",
           age: 1,
           gender: "M",
+          description: "string",
         },
         {
           id: "6d394c43-9bf9-4f8a-8b0f-6ab8579fbfc3",
@@ -138,6 +143,7 @@ db.serialize(() => {
           city: "Nice",
           age: 5,
           gender: "F",
+          description: "string",
         },
         {
           id: "0df44c15-448a-44ca-832f-a10e2c3ed6a0",
@@ -145,6 +151,7 @@ db.serialize(() => {
           city: "Nantes",
           age: 6,
           gender: "M",
+          description: "string",
         },
         {
           id: "fdcf2670-c58b-4427-bb36-a6e0297f3609",
@@ -152,6 +159,7 @@ db.serialize(() => {
           city: "Bordeaux",
           age: 3,
           gender: "F",
+          description: "string",
         },
         {
           id: "9797aae8-7e00-49a7-9221-0e5678add447",
@@ -159,6 +167,7 @@ db.serialize(() => {
           city: "Lille",
           age: 4,
           gender: "M",
+          description: "string",
         },
         {
           id: "bb254d89-4db1-49be-8cea-320a491cb4f3",
@@ -166,6 +175,7 @@ db.serialize(() => {
           city: "Strasbourg",
           age: 2,
           gender: "F",
+          description: "string",
         },
         {
           id: "4fa73261-1006-4494-9b29-77984e283008",
@@ -173,13 +183,14 @@ db.serialize(() => {
           city: "Montpellier",
           age: 1,
           gender: "M",
+          description: "string",
         },
       ];
 
-      profiles.forEach(({ id, name, city, age, gender }) => {
+      profiles.forEach(({ id, name, city, age, gender, description }) => {
         db.run(
-          `INSERT INTO users (id, photo, city, age, name, gender) VALUES (?, ?, ?, ?, ?, ?)`,
-          [id, `${id}.png`, city, age, name, gender],
+          `INSERT INTO users (id, photo, city, age, name, gender, description) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+          [id, `${id}.png`, city, age, name, gender, description],
           (err) => {
             if (err)
               console.log(
@@ -296,12 +307,14 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *                 type: string
  *               gender:
  *                 type: string
+ *               description:
+ *                 type: string
  *     responses:
  *       201:
  *         description: Utilisateur créé avec succès
  */
 app.post("/users", upload.single("photo"), async (req, res) => {
-  const { city, age, name, gender } = req.body;
+  const { city, age, name, gender, description } = req.body;
   const userId = uuidv4();
 
   if (req.file) {
@@ -318,9 +331,9 @@ app.post("/users", upload.single("photo"), async (req, res) => {
 
       db.run(
         `
-        INSERT INTO users (id, photo, city, age, name, gender) 
-        VALUES (?, ?, ?, ?, ?, ?)`,
-        [userId, outputFilename, city, age, name, gender],
+        INSERT INTO users (id, photo, city, age, name, gender, description) 
+        VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        [userId, outputFilename, city, age, name, gender, description],
         (err) => {
           if (err) {
             res.status(500).json({
@@ -341,9 +354,9 @@ app.post("/users", upload.single("photo"), async (req, res) => {
   } else {
     db.run(
       `
-      INSERT INTO users (id, photo, city, age, name, gender) 
-      VALUES (?, ?, ?, ?, ?, ?)`,
-      [userId, null, city, age, name, gender],
+      INSERT INTO users (id, photo, city, age, name, gender, description) 
+      VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [userId, null, city, age, name, gender, description],
       (err) => {
         if (err) {
           res
