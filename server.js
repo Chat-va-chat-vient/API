@@ -722,6 +722,13 @@ app.get("/users/:userId/smashorpass", (req, res) => {
           .status(500)
           .json({ message: "Erreur lors de la récupération des profils." });
       } else {
+        rows.forEach((row) => {
+          if (row.photo) {
+            row.photo = `${req.protocol}://${req.get("host")}/uploads/${
+              row.photo
+            }`;
+          }
+        });
         res.json(rows);
       }
     }
@@ -764,6 +771,9 @@ app.get("/users/:id", (req, res) => {
         message: "Utilisateur non trouvé.",
       });
     } else {
+      if (row.photo) {
+        row.photo = `${req.protocol}://${req.get("host")}/uploads/${row.photo}`;
+      }
       res.json(row);
     }
   });
