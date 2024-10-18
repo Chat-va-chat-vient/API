@@ -111,7 +111,8 @@ db.serialize(() => {
           city: "Paris",
           age: 3,
           gender: "M",
-          description: "string",
+          description:
+            "Je suis un vrai parisien, élégant et toujours à la recherche de câlins. J'adore observer les passants depuis la fenêtre et chasser les ombres. À la recherche d'une compagne pour des siestes partagées et des aventures dans les ruelles de Paris.",
         },
         {
           id: "0881fc7c-3f06-4e1f-bf8c-21597eff596e",
@@ -119,7 +120,8 @@ db.serialize(() => {
           city: "Lyon",
           age: 2,
           gender: "M",
-          description: "string",
+          description:
+            "Petit aventurier à quatre pattes, je suis un explorateur des pentes de Lyon. Joueur et curieux, j'aime grimper et découvrir de nouveaux horizons. J'aimerais rencontrer une chatte aussi curieuse que moi pour des escapades félines.",
         },
         {
           id: "49a7e2dd-4513-4ef1-8acb-d1f8967bd5c9",
@@ -127,7 +129,8 @@ db.serialize(() => {
           city: "Marseille",
           age: 4,
           gender: "F",
-          description: "string",
+          description:
+            "Sous le soleil de Marseille, je suis une beauté raffinée au pelage doux comme la soie. J'aime me prélasser au soleil et savourer la tranquillité. Si tu aimes la dolce vita, rejoins-moi pour une vie de siestes au bord de la fenêtre.",
         },
         {
           id: "befc7995-93eb-46f2-91b3-9fab3743dc98",
@@ -135,7 +138,8 @@ db.serialize(() => {
           city: "Toulouse",
           age: 1,
           gender: "M",
-          description: "string",
+          description:
+            "Je suis un petit chaton plein d'énergie, toujours prêt pour une partie de chasse (de jouets) et une course-poursuite autour de la maison. J'adore les câlins mais seulement après une bonne séance de jeu. À la recherche d'une compagne tout aussi active !",
         },
         {
           id: "6d394c43-9bf9-4f8a-8b0f-6ab8579fbfc3",
@@ -143,7 +147,8 @@ db.serialize(() => {
           city: "Nice",
           age: 5,
           gender: "F",
-          description: "string",
+          description:
+            "Doyenne de mon quartier à Nice, je suis une chatte élégante et un peu gourmande. J'adore les caresses et les moments de détente sur un coussin moelleux. Je cherche un compagnon calme et affectueux pour des moments de tendresse sous le soleil niçois.",
         },
         {
           id: "0df44c15-448a-44ca-832f-a10e2c3ed6a0",
@@ -151,7 +156,8 @@ db.serialize(() => {
           city: "Nantes",
           age: 6,
           gender: "M",
-          description: "string",
+          description:
+            "Véritable roi de la maison, je suis un chat majestueux avec une grande personnalité. J'aime être le centre de l'attention et je sais me faire entendre quand j'ai envie de câlins ou de friandises. À la recherche d'une princesse féline pour régner à deux.",
         },
         {
           id: "fdcf2670-c58b-4427-bb36-a6e0297f3609",
@@ -159,7 +165,8 @@ db.serialize(() => {
           city: "Bordeaux",
           age: 3,
           gender: "F",
-          description: "string",
+          description:
+            "Mystérieuse et élégante, je suis la chatte parfaite pour ceux qui aiment le charme et la grâce. Je suis une grande fan des fenêtres ouvertes et des couchers de soleil. Si tu veux partager des moments calmes et doux, fais-moi signe.",
         },
         {
           id: "9797aae8-7e00-49a7-9221-0e5678add447",
@@ -167,7 +174,8 @@ db.serialize(() => {
           city: "Lille",
           age: 4,
           gender: "M",
-          description: "string",
+          description:
+            "Je suis un chat à la personnalité chaleureuse, comme mon nom l'indique. J'aime les longues siestes et je suis toujours partant pour un bon repas. Je cherche une compagne affectueuse pour partager des moments doux et tranquilles.",
         },
         {
           id: "bb254d89-4db1-49be-8cea-320a491cb4f3",
@@ -175,7 +183,8 @@ db.serialize(() => {
           city: "Strasbourg",
           age: 2,
           gender: "F",
-          description: "string",
+          description:
+            "Curieuse et pleine de vie, j'adore explorer les coins de la maison et jouer avec tout ce qui bouge. Si tu es un chat actif à la recherche d'une partenaire pour des aventures félines, alors je suis la chatte qu'il te faut !",
         },
         {
           id: "4fa73261-1006-4494-9b29-77984e283008",
@@ -183,7 +192,8 @@ db.serialize(() => {
           city: "Montpellier",
           age: 1,
           gender: "M",
-          description: "string",
+          description:
+            "Petit tigre de Montpellier, je suis un chaton joueur avec un grand cœur. Je suis toujours en mouvement, prêt à courir, sauter et explorer. Si tu es aussi joueur que moi, on va bien s'entendre !",
         },
       ];
 
@@ -790,6 +800,73 @@ app.get("/users/:id", (req, res) => {
       res.json(row);
     }
   });
+});
+
+/**
+ * @swagger
+ * /users/{id}:
+ *   put:
+ *     summary: Modifier les informations d'un utilisateur (sauf la photo)
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID de l'utilisateur
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               city:
+ *                 type: string
+ *               age:
+ *                 type: integer
+ *               name:
+ *                 type: string
+ *               gender:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Utilisateur mis à jour avec succès
+ *       404:
+ *         description: Utilisateur non trouvé
+ *       500:
+ *         description: Erreur lors de la mise à jour de l'utilisateur
+ */
+app.put("/users/:id", (req, res) => {
+  const userId = req.params.id;
+  const { city, age, name, gender } = req.body;
+
+  // Vérification des paramètres manquants
+  if (!city || !age || !name || !gender) {
+    return res.status(400).json({
+      message: "Paramètres manquants : city, age, name et gender sont requis.",
+    });
+  }
+
+  // Mettre à jour les informations de l'utilisateur sans toucher à la photo
+  db.run(
+    `UPDATE users SET city = ?, age = ?, name = ?, gender = ? WHERE id = ?`,
+    [city, age, name, gender, userId],
+    function (err) {
+      if (err) {
+        return res.status(500).json({
+          message: "Erreur lors de la mise à jour de l'utilisateur.",
+          error: err,
+        });
+      }
+
+      if (this.changes === 0) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+      }
+
+      res.json({ message: "Utilisateur mis à jour avec succès." });
+    }
+  );
 });
 
 const port = 3001;
