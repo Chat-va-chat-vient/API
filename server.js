@@ -707,6 +707,13 @@ app.get("/users/:userId/likes", (req, res) => {
           message: "Erreur lors de la récupération des likes/dislikes.",
         });
       } else {
+        rows.forEach((row) => {
+          if (row.photo) {
+            row.photo = `${req.protocol}://${req.get("host")}/uploads/${
+              row.photo
+            }`;
+          }
+        });
         res.json(rows);
       }
     }
@@ -872,7 +879,7 @@ app.put("/users/:id", (req, res) => {
 const port = 3001;
 
 // Serveur démarré
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(
     `Le serveur fonctionne sur le port ${port}. Accédez à la documentation Swagger sur http://localhost:${port}/api-docs`
   );
