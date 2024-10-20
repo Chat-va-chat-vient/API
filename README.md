@@ -7,8 +7,8 @@ Note : Le swagger n'est pas totalement à jour.
 ## Prérequis ✅
 
 - Node.js (version minimale : 20) 🌐
-- npm 📦
-  **      OU      **
+- npm 📦  
+  **     **OU**      **  
 - Docker et Docker Compose 🐳
 
 ## Installation ⚙️
