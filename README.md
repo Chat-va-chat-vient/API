@@ -1,6 +1,8 @@
 # API Chat va Chat vient 🐱💬
 
-API de l'application **Chat va Chat vient**, un site de rencontres pour les chats. ❤️🐈
+API de l'application **Chat va Chat vient**, un site de rencontres pour les chats. ❤️🐈  
+
+Notes : Le swagger n'est pas totalement à jour.
 
 ## Prérequis ✅
 
