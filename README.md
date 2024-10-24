@@ -65,8 +65,8 @@ npm run docker:stop
 
 3. **Accédez à l'API :**
 
-   URL de base de l'API est `http://localhost:3000`.  
-   La documentation Swagger est accessible à `http://localhost:3000/api-docs`. 📖
+   URL de base de l'API est `http://localhost:3001`.  
+   La documentation Swagger est accessible à `http://localhost:3001/api-docs`. 📖
 
 ## Schéma de la Base de Données 🗄️
 
